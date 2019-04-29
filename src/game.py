@@ -53,6 +53,20 @@ def coin_flipper():
     else:
         text.config(text="You Lose")
 
+    if flipCount.count_out() >= 10:
+        flip.pack_forget()
+        submit = tk.Button(master=back, text="submit", command=submit_score)
+        submit.pack(side=BOTTOM, pady=20)
+
+
+def submit_score():
+    """
+    save score for high score board
+    call game reset
+    :return:
+    """
+    print(1)
+
 
 flipCount = Counter()
 scoreCount = Counter()
