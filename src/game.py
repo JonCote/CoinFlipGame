@@ -8,23 +8,27 @@ import random
 from tkinter import *
 
 
+class Counter:
+
+    def __init__(self):
+        self.count = 0
+
+
 def coin_flipper():
-    global scoreCount
-    global flipCount
-    flipCount += 1
-    flipCountDisplay.config(text="Flips: "+str(flipCount))
+    flipCount.count += 1
+    flipCountDisplay.config(text="Flips: "+str(flipCount.count))
     x = random.uniform(0, 1)
     if x >= 0.5:
-        scoreCount += 1
+        scoreCount.count += 1
         text.config(text="You Win")
-        score.config(text="Score: "+str(scoreCount))
+        score.config(text="Score: "+str(scoreCount.count))
     else:
         text.config(text="You Lose")
     print(x)
 
 
-flipCount = 0
-scoreCount = 0
+flipCount = Counter()
+scoreCount = Counter()
 window = Tk()
 window.title("Coin Flip")
 window.geometry("250x250")
@@ -38,11 +42,11 @@ text = tk.Message(master=back, width=400, text="Hello Welcome to the Coin Flippe
 text.pack(pady=20)
 
 
-score = tk.Message(master=back, width=100, text="Score: "+str(scoreCount))
+score = tk.Message(master=back, width=100, text="Score: "+str(scoreCount.count))
 score.pack(side=BOTTOM, pady=20)
 
 
-flipCountDisplay = tk.Message(master=back, width=100, text="Flips: "+str(flipCount))
+flipCountDisplay = tk.Message(master=back, width=100, text="Flips: "+str(flipCount.count))
 flipCountDisplay.pack(side=BOTTOM, pady=20)
 
 
